@@ -13,51 +13,51 @@ import Forgot from '../views/forgot';
 
 import Home from '../views/home';
 
-// import Diary from '../views/doctor-list/diary';
+import Diary from '../views/doctor-list/diary';
 import Me from '../views/me';
 import Message from '../views/message';
 
-// import Questionnaire from '../views/questionnaire';
-// import QuestionnairePush from '../views/questionnaire-push';
+import Questionnaire from '../views/questionnaire';
+import QuestionnairePush from '../views/questionnaire-push';
 import PatientList from '../views/patient-list';
-// import PushList from '../views/push-list';
-// import Diagnose from '../views/diagnose';
-// import AddDiagnose from '../views/diagnose/AddDiagnose';
-// import ChangeDiagnose from '../views/diagnose/ChangeDiagnose';
+import PushList from '../views/push-list';
+import Diagnose from '../views/diagnose';
+import AddDiagnose from '../views/diagnose/AddDiagnose';
+import ChangeDiagnose from '../views/diagnose/ChangeDiagnose';
 
-// import Patient from '../views/patient';
+import Patient from '../views/patient';
 // import MessageChat from '../views/message-chat';
 // import Camera from '../views/message-chat/chatPlus/Camera';
 import PersonalInformation from '../views/personal-information';
-// import PatientInformationUpdate from '../views/personal-information/patientinfo-update';
-// import DoctorInformationUpdate from '../views/personal-information/doctorinfo-update';
-// import AccountInformation from '../views/account-information';
-// import ResetNickname from '../views/account-information/nickname';
-// import Setting from '../views/setting';
-// import About from '../views/about';
-// import ArticleDetail from '../views/article-detail';
-// import QuestionnaireDetail from '../views/questions';
+import PatientInformationUpdate from '../views/personal-information/patientinfo-update';
+import DoctorInformationUpdate from '../views/personal-information/doctorinfo-update';
+import AccountInformation from '../views/account-information';
+import ResetNickname from '../views/account-information/nickname';
+import Setting from '../views/setting';
+import About from '../views/about';
+import ArticleDetail from '../views/article-detail';
+import QuestionnaireDetail from '../views/questions';
 
 import DoctorDetail from '../views/doctor-detail';
-// import PatientDetail from '../views/patient-detail';
+import PatientDetail from '../views/patient-detail';
 
 import MoreInfo from '../views/patient-detail/more-info';
-// import DiaryInfo from '../views/patient-detail/diary-info';
-// import AddDoctor from '../views/doctor-list/add-doctor';
+import DiaryInfo from '../views/patient-detail/diary-info';
+import AddDoctor from '../views/doctor-list/add-doctor';
 
-// import SearchDoctorByName from '../views/doctor-list/add-doctor/search/SearchDoctorByName';
-// import SearchDoctorByMajor from '../views/doctor-list/add-doctor/search/SearchDoctorByMajor';
-// import DoctorListByMajor from '../views/doctor-list/add-doctor/search/DoctorListByMajor';
-// import DoctorListSearch from '../views/doctor-list/add-doctor/search/DoctorListSearch';
+import SearchDoctorByName from '../views/doctor-list/add-doctor/search/SearchDoctorByName';
+import SearchDoctorByMajor from '../views/doctor-list/add-doctor/search/SearchDoctorByMajor';
+import DoctorListByMajor from '../views/doctor-list/add-doctor/search/DoctorListByMajor';
+import DoctorListSearch from '../views/doctor-list/add-doctor/search/DoctorListSearch';
 
-// import SearchPatientByNameOrPhone from '../views/patient/search/SearchPatientByNameOrPhone';
-// import PatientListSearch from '../views/patient/search/PatientListSearch';
+import SearchPatientByNameOrPhone from '../views/patient/search/SearchPatientByNameOrPhone';
+import PatientListSearch from '../views/patient/search/PatientListSearch';
 
-// import AllLabel from '../views/patient-list/all-label';
-// import SelectPatient from '../views/patient-list/select-patient';
-// import EditLabel from '../views/patient-list/edit-label';
-// import SaveLabel from '../views/patient-list/save-label';
-// import NewPatients from '../views/patient-list/new-patients';
+import AllLabel from '../views/patient-list/all-label';
+import SelectPatient from '../views/patient-list/select-patient';
+import EditLabel from '../views/patient-list/edit-label';
+import SaveLabel from '../views/patient-list/save-label';
+import NewPatients from '../views/patient-list/new-patients';
 import DoctorList from '../views/doctor-list';
 import Agreement from '../views/sign-up/agreement';
 import TouristInfo from '../views/touristInfo';
@@ -195,54 +195,54 @@ const AppPatient = createStackNavigator({
   MoreInfo: createScreen(MoreInfo),
   DoctorDetail: createScreen(DoctorDetail),
   PersonalInformation: createScreen(PersonalInformation),
-  // PatientInformationUpdate: createScreen(PatientInformationUpdate),
-  // AccountInformation: createScreen(AccountInformation),
-  // ResetNickname: createScreen(ResetNickname),
-  // Setting: createScreen(Setting),
-  // Diagnose: createScreen(Diagnose),
-  // AddDiagnose: createScreen(AddDiagnose),
-  // ChangeDiagnose: createScreen(ChangeDiagnose),
-  // AddDoctor: createScreen(AddDoctor),
-  // SearchDoctorByName: createScreen(SearchDoctorByName),
-  // SearchDoctorByMajor: createScreen(SearchDoctorByMajor),
-  // DoctorListByMajor: createScreen(DoctorListByMajor),
-  // DoctorListSearch: createScreen(DoctorListSearch),
-  // About: createScreen(About),
-  // ArticleDetail: createScreen(ArticleDetail),
-  // QuestionnaireDetail: createScreen(QuestionnaireDetail),
-  // Questionnaire: createScreen(Questionnaire),
-  // Diary: createScreen(Diary),
+  PatientInformationUpdate: createScreen(PatientInformationUpdate),
+  AccountInformation: createScreen(AccountInformation),
+  ResetNickname: createScreen(ResetNickname),
+  Setting: createScreen(Setting),
+  Diagnose: createScreen(Diagnose),
+  AddDiagnose: createScreen(AddDiagnose),
+  ChangeDiagnose: createScreen(ChangeDiagnose),
+  AddDoctor: createScreen(AddDoctor),
+  SearchDoctorByName: createScreen(SearchDoctorByName),
+  SearchDoctorByMajor: createScreen(SearchDoctorByMajor),
+  DoctorListByMajor: createScreen(DoctorListByMajor),
+  DoctorListSearch: createScreen(DoctorListSearch),
+  About: createScreen(About),
+  ArticleDetail: createScreen(ArticleDetail),
+  QuestionnaireDetail: createScreen(QuestionnaireDetail),
+  Questionnaire: createScreen(Questionnaire),
+  Diary: createScreen(Diary),
 });
 
-// //APP内容----医生
-// const AppDoctor = createStackNavigator({
-//   //由BottomTap组成的四个母页
-//   IndexDoctor: createScreen(IndexDoctor),
-//   //堆栈子页
-//   PatientDetail: createScreen(PatientDetail),
-//   MoreInfo: createScreen(MoreInfo),
-//   MessageChat: createScreen(MessageChat),
-//   Camera: createScreen(Camera),
-//   DiaryInfo: createScreen(DiaryInfo),
-//   PersonalInformation: createScreen(PersonalInformation),
-//   DoctorInformationUpdate: createScreen(DoctorInformationUpdate),
-//   AccountInformation: createScreen(AccountInformation),
-//   ResetNickname: createScreen(ResetNickname),
-//   PushList: createScreen(PushList),
-//   Setting: createScreen(Setting),
-//   Patient: createScreen(Patient),
-//   PatientListSearch: createScreen(PatientListSearch),
-//   SearchPatientByNameOrPhone: createScreen(SearchPatientByNameOrPhone),
-//   About: createScreen(About),
-//   ArticleDetail: createScreen(ArticleDetail),
-//   QuestionnairePush: createScreen(QuestionnairePush),
-//   QuestionnaireDetail: createScreen(QuestionnaireDetail),
-//   AllLabel: createScreen(AllLabel),
-//   SelectPatient: createScreen(SelectPatient),
-//   EditLabel: createScreen(EditLabel),
-//   SaveLabel: createScreen(SaveLabel),
-//   NewPatients: createScreen(NewPatients),
-// });
+//APP内容----医生
+const AppDoctor = createStackNavigator({
+  //由BottomTap组成的四个母页
+  IndexDoctor: createScreen(IndexDoctor),
+  //堆栈子页
+  PatientDetail: createScreen(PatientDetail),
+  MoreInfo: createScreen(MoreInfo),
+  // MessageChat: createScreen(MessageChat),
+  // Camera: createScreen(Camera),
+  DiaryInfo: createScreen(DiaryInfo),
+  PersonalInformation: createScreen(PersonalInformation),
+  DoctorInformationUpdate: createScreen(DoctorInformationUpdate),
+  AccountInformation: createScreen(AccountInformation),
+  ResetNickname: createScreen(ResetNickname),
+  PushList: createScreen(PushList),
+  Setting: createScreen(Setting),
+  Patient: createScreen(Patient),
+  PatientListSearch: createScreen(PatientListSearch),
+  SearchPatientByNameOrPhone: createScreen(SearchPatientByNameOrPhone),
+  About: createScreen(About),
+  ArticleDetail: createScreen(ArticleDetail),
+  QuestionnairePush: createScreen(QuestionnairePush),
+  QuestionnaireDetail: createScreen(QuestionnaireDetail),
+  AllLabel: createScreen(AllLabel),
+  SelectPatient: createScreen(SelectPatient),
+  EditLabel: createScreen(EditLabel),
+  SaveLabel: createScreen(SaveLabel),
+  NewPatients: createScreen(NewPatients),
+});
 
 //APP内容----游客
 //注册登录
@@ -271,8 +271,8 @@ const AppNavigator = createSwitchNavigator(
     Entrance,
     //APP内容--患者
     AppPatient,
-    // //APP内容--医生
-    // AppDoctor,
+    //APP内容--医生
+    AppDoctor,
     //APP内容——游客
     AppTourist,
   },

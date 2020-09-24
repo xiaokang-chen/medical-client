@@ -38,13 +38,13 @@ class NewPatients extends React.Component {
           Toast.show('同意成功', {position: 0});
           // 更新其他数据
           network('user/getInfoListByUserToken', 'post')
-            .then(async (res) => {
-              if (res.data) {
+            .then(async (res1) => {
+              if (res1.data) {
                 // 获取医生或者患者的列表
                 const tagDoctor = 1;
                 const patientsList = tagDoctor
-                  ? res.data.patients
-                  : res.data.doctor;
+                  ? res1.data.patients
+                  : res1.data.doctor;
                 const {
                   sectionList,
                   SessionList,

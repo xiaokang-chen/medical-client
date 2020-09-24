@@ -16,10 +16,10 @@ import {connect} from 'react-redux';
 import {
   addSearch,
   cleanSearch,
-  searchDoctor,
-} from '../../../../store/actions/search';
+  searchPatient,
+} from '../../../store/actions/search';
 
-class SearchDoctorByName extends Component {
+class SearchPatientByNameOrPhone extends Component {
   static navigationOptions = ({navigation}) => {
     return {
       header: null,
@@ -30,16 +30,8 @@ class SearchDoctorByName extends Component {
     super(props);
     this.state = {
       q: '',
-      // historySearch: new Set([])
-      doctorSearch: '',
+      patientSearch: '',
     };
-  }
-
-  async componentDidMount() {
-    // const historyStr = await asyncRead(constance.HISTORY_SEARCH);
-    // let history = JSON.parse(historyStr || '{}');
-    // let history = ['A','B','C'];
-    // this.setState({ historySearch: history });
   }
 
   _historyDelete = async () => {
@@ -50,7 +42,6 @@ class SearchDoctorByName extends Component {
         text: '确定',
         onPress: () => {
           this.props.cleanSearch();
-          // Toast.show('已删除', {position: 0});
         },
       },
     ]);
@@ -61,9 +52,8 @@ class SearchDoctorByName extends Component {
     console.log('QQQQ', this.state.q);
     //每输入一个字调用一次接口
     if (this.state.q) {
-      searchDoctor({name: this.state.q}).then((res) => {
-        console.log('搜索到结果', res);
-        this.setState({doctorSearch: res.data});
+      searchPatient({key: this.state.q}).then((res) => {
+        this.setState({patientSearch: res.data});
       });
     }
   };
@@ -72,9 +62,9 @@ class SearchDoctorByName extends Component {
     if (q) {
       this.props.addSearch(q);
     }
-    this.props.navigation.navigate('DoctorListSearch', {
+    this.props.navigation.navigate('PatientListSearch', {
       q: q,
-      res: this.state.doctorSearch,
+      res: this.state.patientSearch,
     });
   };
 
@@ -100,14 +90,11 @@ class SearchDoctorByName extends Component {
             <TouchableOpacity
               style={styles.historyItem}
               onPress={async () => {
-                console.log('Item', item);
-                searchDoctor({name: item}).then((res) => {
-                  console.log('搜索到结果', res);
-                  this.setState({doctorSearch: res.data}, () => {
-                    console.log('doctorSearch', this.state.doctorSearch);
-                    this._search(item);
-                  });
+                await searchPatient({key: item}).then((res) => {
+                  this.setState({patientSearch: res.data});
                 });
+                console.log('patientSearch', this.state.patientSearch);
+                this._search(item);
               }}>
               <Text style={{textAlign: 'center', fontSize: 12}}>{item}</Text>
             </TouchableOpacity>
@@ -118,15 +105,12 @@ class SearchDoctorByName extends Component {
   };
 
   _renderItem = () => {
-    const {doctorSearch} = this.state;
+    const {patientSearch} = this.state;
     let params = {
       keyExtractor: (item) => item.id.toString(),
       renderItem: ({item}) => {
         return (
-          <TouchableOpacity
-            style={styles.itemRes}
-            // onPress={this._search(item.name)}
-          >
+          <TouchableOpacity style={styles.item}>
             <View
               style={{
                 flexDirection: 'row',
@@ -139,13 +123,13 @@ class SearchDoctorByName extends Component {
                 </Text>
               </View>
               <View style={{paddingRight: 15}}>
-                <Text style={{fontSize: 15, color: '#000'}}>{item.major}</Text>
+                <Text style={{fontSize: 15, color: '#000'}}>{item.phone}</Text>
               </View>
             </View>
           </TouchableOpacity>
         );
       },
-      data: doctorSearch,
+      data: patientSearch,
       ItemSeparatorComponent: () => (
         <View
           style={{
@@ -172,7 +156,7 @@ class SearchDoctorByName extends Component {
               navigation.goBack();
             }}>
             <Image
-              source={require('../../images/return.png')}
+              source={require('../images/return.png')}
               resizeMode="contain"
               style={{width: 24, height: 24}}
             />
@@ -217,7 +201,7 @@ class SearchDoctorByName extends Component {
                   onPress={this._historyDelete}>
                   <Image
                     style={{height: 15, width: 15}}
-                    source={require('../../images/delete.png')}
+                    source={require('../images/delete.png')}
                   />
                 </TouchableOpacity>
               </View>
@@ -241,4 +225,7 @@ const mapDispatchToProps = (dispatch) => ({
   cleanSearch: () => dispatch(cleanSearch()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchDoctorByName);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SearchPatientByNameOrPhone);
