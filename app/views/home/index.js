@@ -53,7 +53,11 @@ class Home extends React.Component {
       isRefreshing: false,
       loading: false,
       more: true,
-      imgArr: [],
+      imgArr: [
+        'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fk3%2Ftt%2FQJ8459640081.jpg&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617073514&t=76400e78d0052214a2e596016429c242',
+      'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F83%2F69%2F215c6390e867411.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617073514&t=1921f4cdf3751cb6a2209ed5c6936fd8',
+      'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F04%2F55%2F21%2F945863da61548f9.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617073514&t=75fb5f2d0ff316dc4ca757819b3b66a9'
+      ],
     };
     this.pageSize = 10;
     this.pageNum = 1;
@@ -64,13 +68,18 @@ class Home extends React.Component {
   async componentDidMount() {
     this._onRefresh();
     let res = await network('swiper/imageList', 'get');
+    // console.log("首页图片", res);
     let img_arr = [];
     // 轮播图最多3张
-    let len = Math.min(res.data.length, 3);
-    for (let i = 0; i < len; i++) {
-      img_arr.push(res.data[i].url);
-    }
-    this.setState({imgArr: img_arr});
+    // let len = Math.min(res.data.length, 3);
+    // for (let i = 0; i < len; i++) {
+    //   img_arr.push(res.data[i].url);
+    // }
+    // img_arr = [
+    //   'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdpic.tiankong.com%2Fk3%2Ftt%2FQJ8459640081.jpg&refer=http%3A%2F%2Fdpic.tiankong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617073514&t=76400e78d0052214a2e596016429c242',
+    //   'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F83%2F69%2F215c6390e867411.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617073514&t=1921f4cdf3751cb6a2209ed5c6936fd8',
+    //   'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F04%2F55%2F21%2F945863da61548f9.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1617073514&t=75fb5f2d0ff316dc4ca757819b3b66a9'];
+    // this.setState({imgArr: img_arr});
   }
 
   async _onRefresh() {
@@ -345,7 +354,8 @@ class Home extends React.Component {
 
   render() {
     const {imgArr} = this.state;
-    console.log('111111111', this.props.articles.articles);
+    // console.log('111111111', this.props.articles.articles);
+    console.log("首页图片", imgArr);
     let params = {
       data: this.props.articles.articles,
       renderItem: this.renderArticleItem,
@@ -373,6 +383,7 @@ class Home extends React.Component {
         <ListFooter loading={this.state.loading} more={this.state.more} />
       ),
       ListHeaderComponent: () => <SwiperImage list={imgArr} />,
+      // ListHeaderComponent: () => <SwiperImage />,
     };
 
     return (

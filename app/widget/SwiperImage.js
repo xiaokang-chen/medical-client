@@ -46,6 +46,7 @@ export default class SwiperImage extends Component {
                   onPress(item);
                 }}>
                 <Image source={{uri: list[index]}} style={{width, height}} />
+                {/* <Image source={require('./2.jpg')} style={{width, height}} /> */}
               </TouchableOpacity>
             );
           })}

@@ -8,7 +8,8 @@ const ASYNC_STORAGE = {
   HISTORY_SEARCH: 'HISTORY_SEARCH', //历史搜索
 };
 //ip
-export const ip = '182.92.190.235';
+// export const ip = '182.92.190.235';
+export const ip = '192.168.43.43';
 
 //服务器地址
 export const baseUrl = 'http://' + ip + ':8082/';

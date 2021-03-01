@@ -8,7 +8,7 @@ import Toast from 'react-native-root-toast';
 // styles
 import styles from './style';
 // components
-import {ListItem} from '../../components/ui/list-item';
+import ListItem from '../../components/ui/list-item';
 
 export default class Setting extends Component {
   static navigationOptions = {

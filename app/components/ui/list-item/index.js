@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, PixelRatio} from 'react-native';
 
-class ListItem extends Component {
+export default class ListItem extends Component {
   constructor(props) {
     super(props);
   }
@@ -104,5 +104,3 @@ const styles = StyleSheet.create({
     color: '#23232b',
   },
 });
-
-export default ListItem;
